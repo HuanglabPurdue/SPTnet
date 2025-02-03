@@ -6,16 +6,16 @@ by Cheng Bi, Kevin L. Scrudders, Yue Zheng, Maryam Mahmoodi, Shalini T. Low-Nam,
 
 ## 1. Files included in this package
 ### Content of SPTnet software (Matlab scripts/file)
-* SPTnet_trainingdata_generator.m: Matlab code to generate simulated videos for SPTnet training
+* SPTnet_trainingdata_generator.m: Matlab code to generate simulated videos for SPTnet training.
 * Visualize_SPTnet_Outputs.m: Matlab code to visualize the final output from SPTnet.
-* CRLB_H_D_frame.mat: Calculated CRLB matrix of Hurst exponent and generalized diffusion coefficient used in the loss function
+* CRLB_H_D_frame.mat: Calculated CRLB matrix of Hurst exponent and generalized diffusion coefficient used in the loss function.
 
 ### Content of SPTnet software (Python)
-* SPTnet_toolbox.py: Script for SPTnet architecture and other tools used in loading data and output result
-* SPTnet_training.py: Script to train the SPTnet
-* SPTnet_infernece.py: Script to use a trained model for inference
-* transformer.py: The same transformer module used in DETR (Caron,N.,et al 2020) (spatial-T)
-* transformer3D.py: The transformer module modified to take 3D inputs (temporal-T)
+* SPTnet_toolbox.py: Script for SPTnet architecture and other tools used in loading data and output result.
+* SPTnet_training.py: Script to train the SPTnet.
+* SPTnet_infernece.py: Script to use a trained model for inference.
+* transformer.py: The same transformer module used in DETR (Caron,N.,et al 2020) (spatial-T).
+* transformer3D.py: The transformer module modified to take 3D inputs (temporal-T).
 
 ### Others
 * Example test data: Containing 10 test videos in one file
@@ -27,9 +27,12 @@ This code has been tested on the following systems and packages:
 Microsoft Windows 10 Education, Matlab R2021a, DIPimage 2.8.1 (http://www.diplib.org/)
 Change MATLAB current folder to the directory that contains “PSF-toolbox”.
 Run ‘SPTnet_trainingdata_generator.m’ to generate the training dataset.
+
 ![image](https://github.com/user-attachments/assets/0d91fba5-65ad-4795-b75d-bcf09ece50b6)
 
 The default settings will generate 5 files each containing 100 videos.
+
+![image](https://github.com/user-attachments/assets/51f965b0-6846-447f-b568-bc67e5745a35)
 
 ## 3. Instructions for training SPTnet using simulated training datasets
 The code has been tested on the following systems and packages:
