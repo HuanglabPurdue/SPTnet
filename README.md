@@ -14,7 +14,7 @@ by Cheng Bi, Kevin L. Scrudders, Yue Zheng, Maryam Mahmoodi, Shalini T. Low-Nam,
 * SPTnet_toolbox.py: Script for SPTnet architecture and other tools used in loading data and output result.
 * SPTnet_training.py: Script to train the SPTnet.
 * SPTnet_infernece.py: Script to use a trained model for inference.
-* transformer.py: The same transformer module used in DETR (Caron,N.,et al 2020) (spatial-T).
+* transformer.py: The same transformer module used in DETR (Caron,N., et al. 2020) (spatial-T).
 * transformer3D.py: The transformer module modified to take 3D inputs (temporal-T).
 
 ### Others
