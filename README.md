@@ -4,7 +4,7 @@ This repository accompanies the manuscript:
 by Cheng Bi, Kevin L. Scrudders, Yue Zheng, Maryam Mahmoodi, Shalini T. Low-Nam, and Fang Huang.
 
 
-## Files included in this package
+## 1. Files included in this package
 ### Content of SPTnet software (Matlab scripts/file)
 * SPTnet_trainingdata_generator.m: Matlab code to generate simulated videos for SPTnet training
 * Visualize_SPTnet_Outputs.m: Matlab code to visualize the final output from SPTnet.
@@ -18,11 +18,11 @@ by Cheng Bi, Kevin L. Scrudders, Yue Zheng, Maryam Mahmoodi, Shalini T. Low-Nam,
 * transformer3D.py: The transformer module modified to take 3D inputs (temporal-T)
 
 ### Others
-Example test data: Containing 10 test videos in one file
-PSF-toolbox: Toolbox used to simulate PSF through pupil function
-Trained models: Containing a pre-trained model based on the parameters of a Nikon Ti2 TIRF microscope
+* Example test data: Containing 10 test videos in one file
+* PSF-toolbox: Toolbox used to simulate PSF through pupil function
+* Trained models: Containing a pre-trained model based on the parameters of a Nikon Ti2 TIRF microscope (NA:1.49)
 
-## 1. Instructions for generating training videos
+## 2. Instructions for generating training videos
 This code has been tested on the following systems and packages:
 Microsoft Windows 10 Education, Matlab R2021a, DIPimage 2.8.1 (http://www.diplib.org/)
 Change MATLAB current folder to the directory that contains “PSF-toolbox”.
@@ -31,7 +31,7 @@ Run ‘SPTnet_trainingdata_generator.m’ to generate the training dataset.
 
 The default settings will generate 5 files each containing 100 videos.
 
-## 2. Instructions for training SPTnet using simulated training datasets
+## 3. Instructions for training SPTnet using simulated training datasets
 The code has been tested on the following systems and packages:
 Ubuntu20.04LTS, Python3.9.12, Pytorch1.11.0, CUDA11.3, MatlabR2021a
 To start training,
@@ -40,14 +40,14 @@ To start training,
 (3) Select the training data files.
 (4) During the training, the model with the minimal validation loss will be saved as ‘trained_model’ onto the selected folder in step (2), together with an image of the training loss and validation loss changes along with training epoch.
 
-## 3. Instructions for running inference using a trained model
+## 4. Instructions for running inference using a trained model
 To test the trained model,
 (1) Type the following command in terminal: python SPTnet_inference.py
 (2) Select the trained model that will be used to conduct the inference
 (3) Select the video file that will be analyzed by SPTnet
 (4) An output ‘.mat’ file will be generated under the ‘inference_results’ folder located in the directory of the selected model in step (2), which contains all the estimated trajectories, detection probabilities, Hurst exponents, and generalized diffusion coefficients ready for analysis or visualization.
 
-## 4. Instructions for visualizing the SPTnet outputs overlay with ground truth in a videos
+## 5. Instructions for visualizing the SPTnet outputs overlay with ground truth in a videos
 (1) Run ‘Visualize_SPTnet_Outputs.m’
 (2) Select the files used for testing the model
 (3) Select the SPTnet inference results.
