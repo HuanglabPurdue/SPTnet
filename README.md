@@ -65,7 +65,7 @@ To test the trained model,
 
 **(4)** An output ‘.mat’ file will be generated under the ‘inference_results’ folder located in the directory of the selected model in step (2), which contains all the estimated trajectories, detection probabilities, Hurst exponents, and generalized diffusion coefficients ready for analysis or visualization.
 
-## 5. Instructions for visualizing the SPTnet outputs result using MATLAB
+## 5. Instructions for visualizing the SPTnet output results using MATLAB
 **(1)** Run ‘Visualize_SPTnet_Outputs.m’
 
 **(2)** Select the files used for testing the model
