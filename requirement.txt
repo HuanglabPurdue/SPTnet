@@ -1,0 +1,14 @@
+# Python, PyTorch and CUDA -------------------------
+# follow the official instructions at https://pytorch.org/get-started/locally/
+# to install PyTorch 1.7.1+ and torchvision 0.8.2+
+# torch>=1.7.1
+# torchvision>=0.8.2
+
+conda install scipy
+conda install h5py
+conda install tqdm
+conda install matplotlib
+conda install pandas
+conda install IPython
+pip install opencv-python (pip install opencv-python-headless)
+pip install positional-encodings[pytorch]
