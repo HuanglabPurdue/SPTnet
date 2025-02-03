@@ -43,7 +43,7 @@ Ubuntu20.04LTS, Python3.9.12, Pytorch1.11.0, CUDA11.3, MatlabR2021a
 
 **To start training,**
 
-**(1)** type the following command in the terminal: python SPTnet_training.py
+**(1)** Type the following command in the terminal: python SPTnet_training.py
 
 **(2)** Select the folder to save the trained model
 
@@ -51,17 +51,28 @@ Ubuntu20.04LTS, Python3.9.12, Pytorch1.11.0, CUDA11.3, MatlabR2021a
 
 **(4)** During the training, the model with the minimal validation loss will be saved as ‘trained_model’ onto the selected folder in step (2), together with an image of the training loss and validation loss changes along with training epoch.
 
+![model1_04NAlearning curve](https://github.com/user-attachments/assets/93063dd8-a3eb-4971-b009-0a7948d6075c)
+
+
 ## 4. Instructions for running inference using a trained model
 To test the trained model,
-(1) Type the following command in terminal: python SPTnet_inference.py
-(2) Select the trained model that will be used to conduct the inference
-(3) Select the video file that will be analyzed by SPTnet
-(4) An output ‘.mat’ file will be generated under the ‘inference_results’ folder located in the directory of the selected model in step (2), which contains all the estimated trajectories, detection probabilities, Hurst exponents, and generalized diffusion coefficients ready for analysis or visualization.
 
-## 5. Instructions for visualizing the SPTnet outputs overlay with ground truth in a videos
-(1) Run ‘Visualize_SPTnet_Outputs.m’
-(2) Select the files used for testing the model
-(3) Select the SPTnet inference results.
-(4) By default, the tested videos with ground truth trajectories, Hurst exponent, and generalized diffusion coefficient will be shown in red, and the SPTnet estimation results will show different colors for different tracks. An example frame from the visualization result is attached below.
+**(1)** Type the following command in terminal: python SPTnet_inference.py
+
+**(2)** Select the trained model you will use for inference
+
+**(3)** Select the video file that will be analyzed by SPTnet
+
+**(4)** An output ‘.mat’ file will be generated under the ‘inference_results’ folder located in the directory of the selected model in step (2), which contains all the estimated trajectories, detection probabilities, Hurst exponents, and generalized diffusion coefficients ready for analysis or visualization.
+
+## 5. Instructions for visualizing the SPTnet outputs result using MATLAB
+**(1)** Run ‘Visualize_SPTnet_Outputs.m’
+
+**(2)** Select the files used for testing the model
+
+**(3)** Select the SPTnet inference results.
+
+**(4)** By default, the tested videos with ground truth trajectories, Hurst exponent, and generalized diffusion coefficient will be shown in red, and the SPTnet estimation results will show different colors for different tracks. An example frame from the visualization result is showing below.
+
 ![image](https://github.com/user-attachments/assets/76d0af8e-cc4e-4d85-b89c-32b7d4b9bf22)
 
