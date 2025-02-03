@@ -22,13 +22,6 @@ Example test data: Containing 10 test videos in one file
 PSF-toolbox: Toolbox used to simulate PSF through pupil function
 Trained models: Containing a pre-trained model based on the parameters of a Nikon Ti2 TIRF microscope
 
-## Requirements
-* Matlab R2021a
-* DIPimage 2.8.1
-* Python 3.9.12
-* Pytorch 1.11.0
-* CUDA 11.3
-
 ## 1. Instructions for generating training videos
 This code has been tested on the following systems and packages:
 Microsoft Windows 10 Education, Matlab R2021a, DIPimage 2.8.1 (http://www.diplib.org/)
