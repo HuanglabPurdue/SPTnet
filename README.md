@@ -34,7 +34,7 @@ The default settings will generate 5 files each containing 100 videos.
 
 ![image](https://github.com/user-attachments/assets/51f965b0-6846-447f-b568-bc67e5745a35)
 
-**Note:**: SPTnet was trained with >200,000 videos to achieve precision approching CRLB. To generate more training and validation datasets please change the corresponding numbers in the 'SPTnet_trainingdata_generator.m'
+**Note:** SPTnet was trained with >200,000 videos to achieve precision approching CRLB. To generate more training and validation datasets please change the corresponding numbers in the 'SPTnet_trainingdata_generator.m'
 
 ## 3. Instructions for training SPTnet using simulated training datasets
 The code has been tested on the following systems and packages:
