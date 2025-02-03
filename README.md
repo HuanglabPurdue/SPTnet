@@ -21,6 +21,7 @@ by Cheng Bi, Kevin L. Scrudders, Yue Zheng, Maryam Mahmoodi, Shalini T. Low-Nam,
 * Example test data: Containing 10 test videos in one file
 * PSF-toolbox: Toolbox used to simulate PSF through pupil function
 * Trained models: Containing a pre-trained model based on the parameters of a Nikon Ti2 TIRF microscope (NA:1.49)
+* requirements: Required packages for SPTnet
 
 ## 2. Instructions for generating training videos
 This code has been tested on the following systems and packages:
