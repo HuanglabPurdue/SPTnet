@@ -25,16 +25,17 @@ by Cheng Bi, Kevin L. Scrudders, Yue Zheng, Maryam Mahmoodi, Shalini T. Low-Nam,
 ## 2. Instructions for generating training videos
 This code has been tested on the following systems and packages:
 Microsoft Windows 10 Education, Matlab R2021a, DIPimage 2.8.1 (http://www.diplib.org/)
-Change MATLAB current folder to the directory that contains “PSF-toolbox”.
+
+**(1)** Change MATLAB current folder to the directory that contains “PSF-toolbox”.
 Run ‘SPTnet_trainingdata_generator.m’ to generate the training dataset.
 
 ![image](https://github.com/user-attachments/assets/0d91fba5-65ad-4795-b75d-bcf09ece50b6)
 
-The default settings will generate 5 files each containing 100 videos.
+**(2)** The default settings will generate 5 files each containing 100 videos.
 
 ![image](https://github.com/user-attachments/assets/51f965b0-6846-447f-b568-bc67e5745a35)
 
-**Note:** SPTnet was trained with >200,000 videos to achieve precision approching CRLB. To generate more training and validation datasets please change the corresponding numbers in the 'SPTnet_trainingdata_generator.m'
+**Note:** SPTnet was trained with >200,000 videos to achieve precision approching CRLB. To generate more training and validation datasets, please locate the variables specifying the number of training and validation videos in ‘SPTnet_trainingdata_generator.m’ (e.g., total_files, numvideos). Increase these values to the desired amount, then run the script again. This will produce additional .mat files containing more simulated videos for training and validation.
 
 ## 3. Instructions for training SPTnet using simulated training datasets
 The code has been tested on the following systems and packages:
