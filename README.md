@@ -40,11 +40,16 @@ Run ‘SPTnet_trainingdata_generator.m’ to generate the training dataset.
 ## 3. Instructions for training SPTnet using simulated training datasets
 The code has been tested on the following systems and packages:
 Ubuntu20.04LTS, Python3.9.12, Pytorch1.11.0, CUDA11.3, MatlabR2021a
-To start training,
-(1) type the following command in the terminal: python SPTnet_training.py
-(2) Select the folder to save the trained model
-(3) Select the training data files.
-(4) During the training, the model with the minimal validation loss will be saved as ‘trained_model’ onto the selected folder in step (2), together with an image of the training loss and validation loss changes along with training epoch.
+
+**To start training,**
+
+**(1)** type the following command in the terminal: python SPTnet_training.py
+
+**(2)** Select the folder to save the trained model
+
+**(3)** Select the training data files.
+
+**(4)** During the training, the model with the minimal validation loss will be saved as ‘trained_model’ onto the selected folder in step (2), together with an image of the training loss and validation loss changes along with training epoch.
 
 ## 4. Instructions for running inference using a trained model
 To test the trained model,
