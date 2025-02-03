@@ -51,7 +51,7 @@ Ubuntu20.04LTS, Python3.9.12, Pytorch1.11.0, CUDA11.3, MatlabR2021a
 
 **(4)** During the training, the model with the minimal validation loss will be saved as ‘trained_model’ onto the selected folder in step (2), together with an image of the training loss and validation loss changes along with training epoch.
 
-![model1_04NAlearning curve](https://github.com/user-attachments/assets/93063dd8-a3eb-4971-b009-0a7948d6075c)
+![model1_04NAlearning curve2](https://github.com/user-attachments/assets/59f4dad5-2fdf-44c6-852e-f56112a592a3)
 
 
 ## 4. Instructions for running inference using a trained model
@@ -65,6 +65,8 @@ To test the trained model,
 
 **(4)** An output ‘.mat’ file will be generated under the ‘inference_results’ folder located in the directory of the selected model in step (2), which contains all the estimated trajectories, detection probabilities, Hurst exponents, and generalized diffusion coefficients ready for analysis or visualization.
 
+**Note:** On a typical GPU-enabled PC, SPTnet can process a 30-frame video (each frame sized 64×64 pixels) in approximately 60 ms. Actual performance may vary depending on specific hardware configurations (GPU model, CPU, memory, etc.)
+
 ## 5. Instructions for visualizing the SPTnet output results using MATLAB
 **(1)** Run ‘Visualize_SPTnet_Outputs.m’
 
@@ -75,4 +77,5 @@ To test the trained model,
 **(4)** By default, the tested videos with ground truth trajectories, Hurst exponent, and generalized diffusion coefficient will be shown in red, and the SPTnet estimation results will show different colors for different tracks. An example frame from the visualization result is showing below.
 
 ![image](https://github.com/user-attachments/assets/76d0af8e-cc4e-4d85-b89c-32b7d4b9bf22)
+
 
