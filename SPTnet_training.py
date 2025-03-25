@@ -42,10 +42,8 @@ spt = SPTnet_toolbox(
     number_of_frame=30,
     num_queries= 30
 )
-#/media/chengbi/SSD1/2-24-2022 lowphotontrainingdata/lowSNRtrainigdata_1.mat
-# /media/chengbi/SSD1/Trainingdata1-19-2022/single precision/20000_100steps_1.mat
 
-Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
+Tk().withdraw() # keep the root window from appearing
 filename_train = askopenfilename(multiple=True, initialdir='/media/chengbi/SSD1/Training 2023/AttentionSPT', title='#######Please select all the Training Data File########') # show an "Open" dialog box and return the path to the selected file
 data_train = []
 for file in filename_train:
