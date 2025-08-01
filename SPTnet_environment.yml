@@ -1,0 +1,24 @@
+name: SPTnet
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.10
+  - scipy
+  - h5py
+  - tqdm
+  - matplotlib
+  - pandas
+  - ipython
+  - pip
+  - pip:
+    # Use PyTorch’s CUDA 11.8 wheels
+    - --extra-index-url https://download.pytorch.org/whl/cu118
+    - torch
+    - torchvision
+    - torchaudio
+    # Headless OpenCV build
+    - opencv-python-headless
+    # Positional encodings for PyTorch
+    - positional-encodings[pytorch]
+

@@ -1,0 +1,11 @@
+List of packages required for running SPTnet python codes
+
+conda install scipy
+conda install h5py
+conda install tqdm
+conda install matplotlib
+conda install pandas
+conda install IPython
+pip install opencv-python (pip install opencv-python-headless)
+pip install positional-encodings[pytorch]
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
