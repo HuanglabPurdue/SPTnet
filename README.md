@@ -5,8 +5,6 @@ by Cheng Bi, Kevin L. Scrudders, Yue Zheng, Maryam Mahmoodi, Shalini T. Low-Nam,
 
 
 ## Repository Structure
-
-```text
 SPTnet/
 │
 ├── Python/
