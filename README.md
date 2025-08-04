@@ -4,24 +4,36 @@ This repository accompanies the manuscript:
 by Cheng Bi, Kevin L. Scrudders, Yue Zheng, Maryam Mahmoodi, Shalini T. Low-Nam, and Fang Huang.
 
 
-## 1. Files included in this package
-### Content of SPTnet software (Matlab scripts/file)
-* SPTnet_trainingdata_generator.m: Matlab code to generate simulated videos for SPTnet training.
-* Visualize_SPTnet_Outputs.m: Matlab code to visualize the final output from SPTnet.
-* CRLB_H_D_frame.mat: Calculated CRLB matrix of Hurst exponent and generalized diffusion coefficient used in the loss function.
+## Repository Structure
 
-### Content of SPTnet software (Python)
-* SPTnet_toolbox.py: Script for SPTnet architecture and other tools used in loading data and output result.
-* SPTnet_training.py: Script to train the SPTnet.
-* SPTnet_infernece.py: Script to use a trained model for inference.
-* transformer.py: The same transformer module used in DETR (Caron,N., et al. 2020) (spatial-T).
-* transformer3D.py: The transformer module modified to take 3D inputs (temporal-T).
-
-### Others
-* Example test data: Containing 10 test videos in one file.
-* PSF-toolbox: Toolbox used to simulate PSF through pupil function.
-* Trained models: Containing a pre-trained model based on the parameters of a Nikon Ti2 TIRF microscope (NA:1.49).
-* Requirements: Required packages for SPTnet.
+```text
+SPTnet/
+│
+├── Python/
+│   ├── SPTnet_toolbox.py          # Utilities for data loading and result handling
+│   ├── SPTnet_training.py         # Training script for SPTnet
+│   ├── SPTnet_inference.py        # Inference script for trained model
+│   ├── transformer.py             # Spatial transformer module
+│   ├── transformer3D.py           # Temporal transformer module
+│   └── mat_to_tiff.py             # Converts .mat videos to TIFF series
+│
+├── MATLAB/
+│   ├── SPTnet_trainingdata_generator.m        # GUI to generate training datasets
+│   ├── Visualize_SPTnet_Outputs_GUI.m         # GUI to visualize inference results
+│   └── CRLB_H_D_frame.mat                     # CRLB matrix used in training loss
+│
+├── Example_data/
+│   ├── Example_test_data/         # 10 test videos and TIFF series
+│   └── Example_trainingdata/     # 100 simulated videos for training
+│
+├── Trained_models/               # Pretrained models (e.g., for Nikon Ti2 TIRF)
+├── PSF-toolbox/                  # Simulated PSF generation toolbox
+├── DIPimage_2.9/                 # DIPimage toolbox for MATLAB (Windows/Linux)
+├── Segmentation/                 # Scripts for ER protein segmentation and stitching
+├── SPTnet_environment.yml        # Conda environment configuration
+├── package_required_for_SPTnet.txt
+├── Installation of SPTnet.pdf
+└── SPTnet user manual.pdf
 
 ## 2. Instructions for generating training videos
 This code has been tested on the following systems and packages:
