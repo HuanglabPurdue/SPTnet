@@ -5,7 +5,7 @@ by Cheng Bi, Kevin L. Scrudders, Yue Zheng, Maryam Mahmoodi, Shalini T. Low-Nam,
 
 
 ## Repository Structure
-SPTnet/
+```text
 │
 ├── Python/
 │   ├── SPTnet_toolbox.py          # Utilities for data loading and result handling
@@ -32,6 +32,7 @@ SPTnet/
 ├── package_required_for_SPTnet.txt
 ├── Installation of SPTnet.pdf
 └── SPTnet user manual.pdf
+ ```
 
 ## 2. Instructions for generating training videos
 This code has been tested on the following systems and packages:
