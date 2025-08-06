@@ -4,34 +4,45 @@ This repository accompanies the manuscript:
 by Cheng Bi, Kevin L. Scrudders, Yue Zheng, Maryam Mahmoodi, Shalini T. Low-Nam, and Fang Huang.
 
 
-## Repository Structure
+## Repository contents
 ```text
-├── Python files
-│   ├── SPTnet_toolbox.py          # SPTnet architecuture and Utilities for data loading
-│   ├── SPTnet_training.py         # Training script for SPTnet
-│   ├── SPTnet_inference.py        # Inference script for trained model
-│   ├── transformer.py             # Spatial transformer module (Vaswani, A., et al., Attention is all you need. Advances in neural information processing systems, 2017)
-│   ├── transformer3D.py           # Temporal transformer module (Modified to take 3D inputs)
-│   └── mat_to_tiff.py             # Converts .mat videos to TIFF series
-│
-├── MATLAB files
-│   ├── SPTnet_trainingdata_generator.m        # GUI to generate training datasets
-│   ├── Visualize_SPTnet_Outputs_GUI.m         # GUI to visualize inference results
-│   └── CRLB_H_D_frame.mat                     # CRLB matrix used in loss function
-│
-├── Example_data
-│   ├── Example_test_data/        # mat file contains 10 test videos and an example TIFF series
-│   └── Example_trainingdata/     # mat file contains 100 simulated videos for training
-│
-├── Trained_models               # Pretrained model (based on a Nikon Ti2 TIRF system, NA=1.49)
-├── PSF-toolbox                  # Simulated PSF generation toolbox
-├── DIPimage_2.9                 # DIPimage toolbox for MATLAB (https://diplib.org/download_2.9.html)
-├── Segmentation                 # Scripts for ER protein segmentation and stitching
-├── SPTnet_environment.yml       # Conda environment configuration included all necessary packages for SPTnet
-├── package_required_for_SPTnet.txt   # packages required by SPTnet
+Python files
+├── SPTnet_toolbox.py          # SPTnet architecuture and Utilities for data loading
+├── SPTnet_training.py         # Training script for SPTnet
+├── SPTnet_inference.py        # Inference script for trained model
+├── transformer.py             # Spatial transformer module (Vaswani, A., et al., Attention is all you need. Advances in neural information processing systems, 2017)
+├── transformer3D.py           # Temporal transformer module (Modified to take 3D inputs)
+└── mat_to_tiff.py             # Converts .mat videos to TIFF series
+
+MATLAB files
+├── SPTnet_trainingdata_generator.m        # GUI to generate training datasets
+├── Visualize_SPTnet_Outputs_GUI.m         # GUI to visualize inference results
+└── CRLB_H_D_frame.mat                     # CRLB matrix used in loss function
+
+Example_data
+├── Example_test_data/        # mat file contains 10 test videos and an example TIFF series
+└── Example_trainingdata/     # mat file contains 100 simulated videos for training
+
+Others
+├── Trained_models                         # Pretrained model (based on a Nikon Ti2 TIRF system, NA=1.49)
+├── PSF-toolbox                            # Simulated PSF generation toolbox
+├── DIPimage_2.9                           # DIPimage toolbox for MATLAB (https://diplib.org/download_2.9.html)
+├── Segmentation                           # Scripts for ER protein segmentation and stitching
+├── SPTnet_environment.yml                 # Conda environment configuration included all necessary packages for SPTnet
+├── package_required_for_SPTnet.txt        # packages required by SPTnet
 ├── Installation of SPTnet.pdf     
 └── SPTnet user manual.pdf
  ```
+## 1. Installation
+Python environment (via Anaconda)
+
+**(1)**  Install Anaconda or Miniconda 
+
+**(2)** Through "Anaconda prompt" navigate to the folder with "SPTnet_environment.yml"
+
+**(3)** Run the following command to create the environment
+
+conda env create -f SPTnet_environment.yml
 
 ## 2. Instructions for generating training videos
 This code has been tested on the following systems and packages:
