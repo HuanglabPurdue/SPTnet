@@ -46,12 +46,13 @@ conda env create -f SPTnet_environment.yml
 
 ## 2. Instructions for generating training videos
 This code has been tested on the following systems and packages:
-Microsoft Windows 10 Education, Matlab R2021a, DIPimage 2.8.1 (http://www.diplib.org/)
+Microsoft Windows 10 Education, Matlab R2021a, DIPimage 2.9 (http://www.diplib.org/)
 
 **(1)** Change MATLAB current folder to the directory that contains “PSF-toolbox”.
 Run ‘SPTnet_trainingdata_generator.m’ to generate the training dataset.
 
-![image](https://github.com/user-attachments/assets/0d91fba5-65ad-4795-b75d-bcf09ece50b6)
+<img width="356" height="476" alt="image" src="https://github.com/user-attachments/assets/60b7c8d3-8734-48b0-a529-6ed8f554cc66" />
+
 
 **(2)** The default settings will generate 5 files each containing 100 videos.
 
