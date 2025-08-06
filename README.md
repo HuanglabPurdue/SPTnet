@@ -74,7 +74,8 @@ Ubuntu20.04LTS, Python3.9.12, Pytorch1.11.0, CUDA11.3, MatlabR2021a
 
 **(4)** During the training, the model with the minimal validation loss will be saved as ‘trained_model’ onto the selected folder in step (2), together with an image of the training loss and validation loss changes along with training epoch.
 
-![model1_04NAlearning curve2](https://github.com/user-attachments/assets/59f4dad5-2fdf-44c6-852e-f56112a592a3)
+<img width="426" height="318" alt="image" src="https://github.com/user-attachments/assets/5c222473-7ae7-4c10-962d-c13f0546f5dc" />
+
 
 
 ## 4. Instructions for running inference using a trained model
