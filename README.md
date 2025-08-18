@@ -36,14 +36,14 @@ Others
 ## 1. Installation
 Python environment (via Anaconda)
 
-**(1)**  Install Anaconda or Miniconda 
+**(1)**  Install Anaconda or Miniconda
 
 **(2)** Through "Anaconda prompt" navigate to the folder with "SPTnet_environment.yml"
 
 **(3)** Run the following command to create the environment
-
+```
 conda env create -f SPTnet_environment.yml
-
+```
 ## 2. Instructions for generating training videos
 This code has been tested on the following systems and packages:
 Microsoft Windows 10 Education, Matlab R2021a, DIPimage 2.9 (http://www.diplib.org/)
@@ -66,8 +66,10 @@ Ubuntu20.04LTS, Python3.9.12, Pytorch1.11.0, CUDA11.3, MatlabR2021a
 
 **To start training,**
 
-**(1)** Type the following command in the terminal: python SPTnet_training.py
-
+**(1)** Type the following command in the terminal: 
+```
+python SPTnet_training.py
+```
 **(2)** Select the folder to save the trained model
 
 **(3)** Select the training data files.
@@ -76,13 +78,16 @@ Ubuntu20.04LTS, Python3.9.12, Pytorch1.11.0, CUDA11.3, MatlabR2021a
 
 <img width="426" height="318" alt="image" src="https://github.com/user-attachments/assets/5c222473-7ae7-4c10-962d-c13f0546f5dc" />
 
+(Example learning curves, training - red, validation - blue)
 
 
 ## 4. Instructions for running inference using a trained model
 To test the trained model,
 
-**(1)** Type the following command in terminal: python SPTnet_inference.py
-
+**(1)** Type the following command in terminal: 
+```
+python SPTnet_inference.py
+```
 **(2)** Select the trained model you will use for inference
 
 **(3)** Select the video file that will be analyzed by SPTnet
