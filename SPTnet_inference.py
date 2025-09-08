@@ -25,7 +25,7 @@ class TiffDataset(Dataset):
         video = tifffile.imread(tif_path)
         if video.ndim == 2:
             raise ValueError(f"{tif_path} contains only one frame; need a time series.")
-        self.video = video
+        self.video = video.astype(np.float32)
     def __len__(self):
         return 1
     def __getitem__(self, idx):
