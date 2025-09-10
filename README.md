@@ -27,11 +27,11 @@ Others
 ├── Trained_models                         # Pretrained model (based on a Nikon Ti2 TIRF system, NA=1.49)
 ├── PSF-toolbox                            # Simulated PSF generation toolbox
 ├── DIPimage_2.9                           # DIPimage toolbox for MATLAB (https://diplib.org/download_2.9.html)
-├── Segmentation                           # Scripts for ER protein segmentation and stitching
+├── Segmentation                           # Scripts for segmentation and stitching
 ├── SPTnet_environment.yml                 # Conda environment configuration included all necessary packages for SPTnet
-├── package_required_for_SPTnet.txt        # packages required by SPTnet
-├── Installation of SPTnet.pdf     
-└── SPTnet user manual.pdf
+├── package_required_for_SPTnet.txt        # Packages required by SPTnet
+├── Installation of SPTnet.pdf             # Installation instruction
+└── SPTnet user manual.pdf                 # User manual
  ```
 ## 1. Installation
 Python environment (via Anaconda)
