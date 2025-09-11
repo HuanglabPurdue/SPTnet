@@ -17,7 +17,7 @@ Python files
 MATLAB files
 ├── SPTnet_trainingdata_generator.m        # GUI to generate training datasets
 ├── Visualize_SPTnet_Outputs_GUI.m         # GUI to visualize inference results
-└── CRLB_H_D_frame.mat                     # CRLB matrix used in loss function
+├── CRLB_H_D_frame.mat                     # CRLB matrix used in loss function
 └── compute_CRLB_matrix.m                  # MATLAB function to calcualte the CRLB matrix used for training
 
 Example_data
