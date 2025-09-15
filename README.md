@@ -59,7 +59,7 @@ Run ‘SPTnet_trainingdata_generator.m’ to generate the training dataset.
 
 ![image](https://github.com/user-attachments/assets/51f965b0-6846-447f-b568-bc67e5745a35)
 
-**Note:** SPTnet was trained with >200,000 videos to achieve precision approching CRLB. To generate more training and validation datasets, please locate the variables specifying the number of training videos in ‘SPTnet_trainingdata_generator.m’ (e.g., total_files, numvideos). Increase these values to the desired amount, then run the script again. This will produce additional .mat files containing more simulated videos for training and validation.
+**Note:** SPTnet was trained with >200,000 videos to achieve precision approching CRLB. To generate more training and validation datasets, please locate the variables specifying the number of training videos in ‘SPTnet_trainingdata_generator.m’ (e.g., Num_file, Videos_per_file). Increase these values to the desired amount and producing additional .mat files containing more simulated videos for training and validation.
 
 ## 3. Instructions for training SPTnet using simulated training datasets
 The code has been tested on the following systems and packages:
