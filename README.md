@@ -21,8 +21,16 @@ MATLAB files
 └── compute_CRLB_matrix.m                  # MATLAB function to calcualte the CRLB matrix used for training
 
 Example_data
-├── Example_test_data/        # mat file contains 10 test videos and an example TIFF series
-└── Example_trainingdata/     # mat file contains 100 simulated videos for training
+├── Example_testdata.mat                 # .mat file contains 10 test videos
+├── Example_data_SA-AF647_on_SLB.tif     # Experimental data in tiff format (Tracking lipid on SLB using AF647 dye)
+└── Example_256by256by100.mat            # Example of a simulated video with 256 × 256 pixels and 100 frames
+
+Example_workflow_1 (process large videos)
+├── Step1_segementation.m                             # MATLAB script to do segementation
+├── Step2_SPTnet_inference.py                         # Same as "SPTnet_inference.py"
+├── Step3_stitch_and_display.m                        # MATLAB script to stitch segemented files
+├── Step4_chunk_connection_and_repeat_reduction.m     # Connect blocks and remove duplicate tracks
+└── Segementation_user_manual.pdf                     # User manual for segementation
 
 Others
 ├── Trained_models                         # Pretrained model (based on a Nikon Ti2 TIRF system, NA=1.49)
