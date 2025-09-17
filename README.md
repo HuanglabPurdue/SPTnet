@@ -41,6 +41,8 @@ Others
 ├── package_required_for_SPTnet.txt        # Packages required by SPTnet
 ├── Installation of SPTnet.pdf             # Installation instruction
 └── SPTnet user manual.pdf                 # User manual
+
+(Some large files in this repository are stored using git LFS, directly download via Github web page may give you a 1kb pointer instead of the original files. Use "git lfs pull" instead)
  ```
 ## 1. Installation
 Python environment (via Anaconda)
