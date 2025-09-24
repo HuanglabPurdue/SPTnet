@@ -30,6 +30,7 @@ Example_workflow_1 (process large videos)
 ├── Step2_SPTnet_inference.py                         # Same as "SPTnet_inference.py"
 ├── Step3_stitch_and_display.m                        # MATLAB script to stitch segemented files
 ├── Step4_chunk_connection_and_repeat_reduction.m     # Connect blocks and remove duplicate tracks
+├── Convert_TIFF_to_MAT.m                             # Convert tiff image to .mat format
 └── Segementation_user_manual.pdf                     # User manual for segementation
 
 Others
