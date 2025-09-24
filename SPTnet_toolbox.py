@@ -140,6 +140,7 @@ class SPTnet_toolbox(object):
                 'class_label': class_label_pd
             }
             return sample
+            
     class inference_simulation_data(torch.utils.data.Dataset):
         def __init__(self, SPTnet_toolbox, dataset_path):
             super(SPTnet_toolbox.inference_simulation_data, self).__init__()
