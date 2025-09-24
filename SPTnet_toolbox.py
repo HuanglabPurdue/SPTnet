@@ -57,51 +57,89 @@ class SPTnet_toolbox(object):
         if diff_max:
             self.diff_max = diff_max
 
-
-    #Transfer Matlab simulated brownian motion moive into suitable datasets
+    # Transfer Matlab simulated brownian motion movie into suitable datasets
     class Transformer_mat2python(torch.utils.data.Dataset):
         def __init__(self, SPTnet_toolbox, dataset_path):
-            super(SPTnet_toolbox.Transformer_mat2python,self).__init__()
+            super(SPTnet_toolbox.Transformer_mat2python, self).__init__()
             self.spt = SPTnet_toolbox
             self.validation = []
-            dataset = h5py.File(dataset_path,'r')
+            dataset = h5py.File(dataset_path, 'r')
             self.dataset = dataset
 
+            # Detect whether labels exist; cache timelapsedata
+            self.has_labels = all(k in self.dataset for k in ['Hlabel', 'Clabel', 'traceposition'])
+            if 'timelapsedata' not in self.dataset:
+                raise KeyError("Missing variable 'timelapsedata' in dataset.")
+            self.td = self.dataset['timelapsedata']  # 3D: (T,H,W) or 4D: (N,T,H,W)
 
         def __len__(self):
-            return len(self.dataset['Hlabel'][1])
-
-        def __getitem__ (self,idx):
-            if len(self.dataset['timelapsedata'].shape) == 3:
-                video = np.array(self.dataset['timelapsedata'])[np.newaxis,:][idx]
+            if self.has_labels:
+                return len(self.dataset['Hlabel'][1])
+            # video-only
+            if self.td.ndim == 3:  # (T,H,W)
+                return 1
+            elif self.td.ndim == 4:  # (N,T,H,W)
+                return self.td.shape[0]
             else:
-                video = np.array(self.dataset['timelapsedata'][idx])  #timelapsedata is variable name in matlab
-            Hlabel_ref = np.array(self.dataset['Hlabel'][:, idx])  #Hlabel is variable name in matlab
+                raise ValueError(f"'timelapsedata' must be 3D or 4D, got {self.td.shape}.")
+
+        def __getitem__(self, idx):
+            # ---------------- Video loading (works for both labeled and unlabeled) ----------------
+            if self.td.ndim == 3:
+                if idx != 0:
+                    raise IndexError("Index out of range for single 3D movie.")
+                video = np.array(self.td)  # (T,H,W)
+            else:
+                video = np.array(self.td[idx])  # (T,H,W)
+
+            # ---------------- Unlabeled path ----------------
+            if not self.has_labels:
+                # Return just the video (no extra channel here; add channel once in your toolbox)
+                return {'video': video}
+
+            # ---------------- Labeled path (your original logic) ----------------
+            Hlabel_ref = np.array(self.dataset['Hlabel'][:, idx])  # references
             Clabel_ref = np.array(self.dataset['Clabel'][:, idx])
             position_ref = np.array(self.dataset['traceposition'][:, idx])
-            # Hlabel  = np.array(self.dataset[Hlabel_ref[:]])
+
             Hlabel = np.zeros(len(Hlabel_ref))
             Clabel = np.zeros(len(Hlabel_ref))
-            position = np.full([video.shape[0], len(Hlabel_ref), 2],np.nan)
-            class_label = np.full([video.shape[0], len(Hlabel_ref)],(0))
+            # video.shape[0] == T
+            position = np.full([video.shape[0], len(Hlabel_ref), 2], np.nan)
+            class_label = np.full([video.shape[0], len(Hlabel_ref)], 0)
 
             j = 0
-            for i in range(0,len(Hlabel_ref)):
-                if np.array(self.dataset[Hlabel_ref[i]][0])!= 0:
+            for i in range(len(Hlabel_ref)):
+                if np.array(self.dataset[Hlabel_ref[i]][0]) != 0:
                     Hlabel[j] = float(np.array(self.dataset[Hlabel_ref[i]][0]))
                     Clabel[j] = float(np.array(self.dataset[Clabel_ref[i]][0]))
-                    if np.array(self.dataset[position_ref[i]]).T.size == video.shape[0]*2:
-                        position[:,j,:] = np.array(self.dataset[position_ref[i]]).T
-                        class_label[:,j] = np.multiply(~np.isnan(position[:, j, 0]),1)
-                        j = j+1
-            class_label_pd = np.pad(class_label,[(0,0), (0, self.spt.num_queries - Hlabel.shape[0])], 'constant', constant_values=(0))
-            padding_config = ((0, 0), (0, self.spt.num_queries - Hlabel.shape[0]), (0, 0))
-            position_pd = np.pad(position, padding_config, 'constant',constant_values=np.nan)
-            outfov_mask = np.any((position_pd<-self.spt.image_size/2)|(position_pd>self.spt.image_size/2),axis=2) #when particles move outside the FOV, make the class label as 0
-            class_label_pd[outfov_mask]=0
-            sample = {'video' : video, 'position':position_pd ,'Hlabel':Hlabel, 'Clabel':Clabel, 'class_label':class_label_pd}
-            return sample
+                    pos_arr = np.array(self.dataset[position_ref[i]]).T  # expect (T,2)
+                    if pos_arr.size == video.shape[0] * 2:
+                        position[:, j, :] = pos_arr
+                        class_label[:, j] = np.multiply(~np.isnan(position[:, j, 0]), 1)
+                        j += 1
 
+            class_label_pd = np.pad(
+                class_label, [(0, 0), (0, self.spt.num_queries - Hlabel.shape[0])],
+                'constant', constant_values=0
+            )
+            padding_config = ((0, 0), (0, self.spt.num_queries - Hlabel.shape[0]), (0, 0))
+            position_pd = np.pad(position, padding_config, 'constant', constant_values=np.nan)
+
+            outfov_mask = np.any(
+                (position_pd < -self.spt.image_size / 2) | (position_pd > self.spt.image_size / 2),
+                axis=2
+            )
+            class_label_pd[outfov_mask] = 0
+
+            sample = {
+                'video': video,  # (T,H,W)
+                'position': position_pd,  # (T, num_queries, 2)
+                'Hlabel': Hlabel,
+                'Clabel': Clabel,
+                'class_label': class_label_pd
+            }
+            return sample
     class inference_simulation_data(torch.utils.data.Dataset):
         def __init__(self, SPTnet_toolbox, dataset_path):
             super(SPTnet_toolbox.inference_simulation_data, self).__init__()
