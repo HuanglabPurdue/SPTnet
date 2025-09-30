@@ -17,6 +17,7 @@ Python files
 MATLAB files
 ├── SPTnet_trainingdata_generator.m        # GUI to generate training datasets
 ├── Visualize_SPTnet_Outputs_GUI.m         # GUI to visualize inference results
+├── Visualize_SPTnet_Outputs.m             # Script to visualize inference results
 ├── CRLB_H_D_frame.mat                     # CRLB matrix used in loss function
 └── compute_CRLB_matrix.m                  # MATLAB function to calcualte the CRLB matrix used for training
 
@@ -109,7 +110,7 @@ python SPTnet_inference.py
 **Note:** On a typical GPU-enabled PC, SPTnet can process a 30-frame video (each frame sized 64×64 pixels) in approximately 60 ms. Actual performance may vary depending on specific hardware configurations (GPU model, CPU, memory, etc.)
 
 ## 5. Instructions for visualizing the SPTnet output results using MATLAB
-**(1)** Run ‘Visualize_SPTnet_Outputs.m’
+**(1)** Run ‘Visualize_SPTnet_Outputs.m’ or ‘Visualize_SPTnet_Outputs_GUI.m’
 
 **(2)** Select the files used for testing the model
 
