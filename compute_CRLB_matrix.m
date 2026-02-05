@@ -1,9 +1,9 @@
 %% Compute CRLB matrix for estimating Hurst exponent and diffusion coefficient in fractional Brownian motion used for SPTnet training.
 % Pre-allocate CRLB storage
-frame_number = 100; % maximum frame number in the video 
-D_maximum = 10; %unit: pixel^2/frame^-2H
+frame_number = 10; % maximum frame number in the video 
+D_maximum = 2; %unit: pixel^2/frame^-2H
 D_step = D_maximum/0.01;
-CRLB_matrix_HD_frame = zeros(D_step,99,frame_number,2,2); % (diff,Hurst,frame,CRLB_column1,CRLB_column2)
+CRLB_matrix_HD_frame = zeros(frame_number,99,D_step,2,2); % (frame,Hurst,diff,CRLB_column1,CRLB_column2)
 warning('off','MATLAB:singularMatrix');
 tic
 for frames = 2:frame_number % from 2 frames to "frame_number"
