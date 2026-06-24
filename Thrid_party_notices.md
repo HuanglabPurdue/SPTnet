@@ -4,11 +4,9 @@ This project includes or adapts components from third-party open-source software
 
 ## Apache License 2.0 Components
 
-SPTnet contains components that include or are derived from code licensed under the Apache License, Version 2.0.
+SPTnet contains components (transformer.py, transformer3D.py) that include or are derived from code licensed under the Apache License, Version 2.0.
 
-transformer.py
-transformer3D.py
-Original repository: https://github.com/facebookresearch/detr/tree/main
+The Original repository: https://github.com/facebookresearch/detr/tree/main
 
 A copy of the Apache License, Version 2.0 is provided below：
 
