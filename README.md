@@ -4,6 +4,7 @@ This repository accompanies the manuscript:
 by Cheng Bi, Kevin L. Scrudders, Yue Zheng, Maryam Mahmoodi, Chelsea Yang, Hark Kyun Kim, Alejandro Chavez, Legant R. Wesley, Shalini T. Low-Nam, and Fang Huang.
 
 ![M13 Sec61_Large_video_small2](https://github.com/user-attachments/assets/30d68965-24cb-46e7-bb08-da8f0aeb1424)
+(Example outputs. Color represents for estimated Hurst exponent (H), ranging from blue (0) to red (1))
 ## Repository contents
 ```text
 Python files
