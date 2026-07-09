@@ -68,7 +68,7 @@ uicontrol('Parent',ctrlPanel,'Style','pushbutton','String','Save Video', ...
 uicontrol('Parent',ctrlPanel,'Style','pushbutton','String','Export CSV',  ...
     'Position',[760,55,120,30],'Callback',@onExportCSV);
 
-% NEW: Play / Step buttons
+% Play / Step buttons
 btnPlay = uicontrol('Parent',ctrlPanel,'Style','togglebutton','String','Play', ...
     'Position',[890,55,80,30],'Callback',@onPlayToggle);
 uicontrol('Parent',ctrlPanel,'Style','pushbutton','String','Next Frame', ...
@@ -101,8 +101,7 @@ function onLoadGT(~,~)
     [~, imgW] = size(gt.timelapsedata(:,:,1,1));
     scale = imgW / 2;
 
-    % Optional: rescale GT coordinates if they are in normalized form
-    % NOTE: Your original code always adds scale; we keep that behavior.
+    % rescale GT coordinates if they are in normalized form
     if isfield(gt, 'traceposition')
         for i = 1:numel(gt.traceposition)
             tp = gt.traceposition{i};
@@ -111,7 +110,16 @@ function onLoadGT(~,~)
     end
 
     data.GT = gt;
-    chkGT.Enable = 'on'; chkGT.Value = 1;
+
+    % only enable/check it when traceposition exists
+    if isfield(gt, 'traceposition')
+        chkGT.Enable = 'on';
+        chkGT.Value  = 1;
+    else
+        chkGT.Enable = 'off';
+        chkGT.Value  = 0;
+    end
+
     initSampleSelector(); enableSlider();
     slider.Value = 1; txtF.String = 'Frame: 1';
     updateDraw();
@@ -140,6 +148,12 @@ function onLoadINF(~,~)
     data.INF.C      = S.estimation_C * 0.5;
     tmp_obj = permute(S.obj_estimation,[1,4,3,2]);
     data.INF.obj = tmp_obj(:,:,:,1);
+
+    % Auto-detect Num Query from the second dimension of estimation_C
+    if isfield(S, 'estimation_C')
+        setts.N = size(S.estimation_C, 2);
+        edtN.String = num2str(setts.N);
+    end
 
     initSampleSelector(); enableSlider();
     slider.Value = 1; txtF.String = 'Frame: 1';
@@ -260,8 +274,8 @@ function onExportCSV(~,~)
                 x = xy(1);
                 y = xy(2);
 
-                % track_id = t (1..nTracks), query_id = q (keep for debugging)
-                rows(end+1,:) = [t, f, x, y, Hq, Cq, q]; %#ok<AGROW>
+                % track_id = t (1..nTracks), query_id = q 
+                rows(end+1,:) = [t, f, x, y, Hq, Cq, q]; 
             end
         end
     end
@@ -275,7 +289,7 @@ function onExportCSV(~,~)
     T = array2table(rows, 'VariableNames', ...
         {'track_ID','frame','x','y','Hurst exponent','Generalized diffusion coefficient','query_ID'});
 
-    % Sort nicely: by track then frame
+    % by track then frame
     T = sortrows(T, {'track_ID','frame'});
 
     % ---- Save ----
@@ -429,7 +443,7 @@ function updateDraw()
         Idisp = mat2gray(Iraw);
     elseif isfield(data,'TIFF')
         Iraw = data.TIFF(:,:,fr);
-        % flip horizontally then rotate 90° CCW
+        % flip horizontally then rotate 90° 
         Iraw = fliplr(Iraw);
         Iraw = rot90(Iraw,1);
         Idisp = mat2gray(Iraw);
