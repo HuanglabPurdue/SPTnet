@@ -50,7 +50,7 @@ fprintf('Done. Size(timelapsedata) = [%d %d %d %d], class = %s\n', ...
         size(timelapsedata), class(timelapsedata));
 
 % --- Optional: save ---
-% [mf, mp] = uiputfile('timelapsedata.mat','Save variable as');
-% if ~isequal(mf,0)
-%     save(fullfile(mp,mf), 'timelapsedata','-v7.3'); % -v7.3 for big arrays
-% end
+[mf, mp] = uiputfile('timelapsedata.mat','Save variable as');
+if ~isequal(mf,0)
+  save(fullfile(mp,mf), 'timelapsedata','-v7.3'); % -v7.3 for big arrays
+end
