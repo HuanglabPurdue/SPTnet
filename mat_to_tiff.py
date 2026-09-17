@@ -5,6 +5,8 @@ import tkinter as tk
 from tkinter import filedialog
 import os
 
+# Convert training data generator output ".mat" file (4 dimension: X,Y,T,N. T is frame, N is the number of videos) into many multi-page tiffs.  
+
 # Set initial directory
 initial_dir = os.getcwd()
 
