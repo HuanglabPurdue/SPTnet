@@ -6,7 +6,7 @@ from tkinter import filedialog
 import os
 
 # Set initial directory
-initial_dir = r'K:\SPT_2023\Revision\Comparison under experimental challenging condition'
+initial_dir = os.getcwd()
 
 # Select MAT files
 root = tk.Tk()
